@@ -2,10 +2,25 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Phone, ArrowRight, ArrowLeft } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const heroImages = [
+    "/images/hero-image-1.png",
+    "/images/hero-image-2.png",
+    "/images/hero-image-3.png",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   const socialLinks = [
     { icon: Github, label: "Github", href: "https://github.com/oznuryilmazz" },
@@ -89,23 +104,59 @@ const Hero = () => {
             </motion.a>
           </motion.div>
 
-          {/* Right Side - Decorative Ring */}
+          {/* Right Side - Animated Images */}
           <motion.div
-            className="hidden lg:flex justify-center items-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            className="hidden lg:flex justify-center items-center relative"
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative w-[300px] h-[300px]">
-              <div className="absolute inset-0 ring-decoration" />
-              <div className="absolute inset-4 ring-decoration" />
+            <div className="relative w-[400px] h-[400px]">
+              {heroImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  className="absolute inset-0"
+                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                  animate={{
+                    opacity: index === currentImageIndex ? 1 : 0,
+                    scale: index === currentImageIndex ? 1 : 0.8,
+                    rotate: index === currentImageIndex ? 0 : -10,
+                    y: index === currentImageIndex ? [0, -10, 0] : 0,
+                    zIndex: index === currentImageIndex ? 10 : 1,
+                  }}
+                  transition={{
+                    opacity: { duration: 0.6, ease: "easeInOut" },
+                    scale: { duration: 0.6, ease: "easeInOut" },
+                    rotate: { duration: 0.6, ease: "easeInOut" },
+                    y: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    },
+                  }}
+                >
+                  <motion.div
+                    className="relative w-full h-full"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src={image}
+                      alt={`Hero image ${index + 1}`}
+                      fill
+                      className="object-contain"
+                      priority={index === 0}
+                    />
+                  </motion.div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
 
         {/* Social Links */}
         <motion.div
-          className="flex flex-wrap gap-3 mb-16"
+          className="flex flex-wrap gap-3 mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -129,13 +180,13 @@ const Hero = () => {
         </motion.div>
 
         {/* Articles Carousel */}
-        <motion.div
+
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <div className="relative">
-            {/* Carousel Container */}
             <div className="flex gap-6 overflow-hidden">
               {articles.map((article, index) => (
                 <motion.div
@@ -152,7 +203,6 @@ const Hero = () => {
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
-                  {/* Article Image Placeholder */}
                   <div 
                     className="w-full h-48 rounded-xl mb-4 overflow-hidden"
                     style={{ backgroundColor: "var(--color-gray-dark)" }}
@@ -193,7 +243,6 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* Carousel Controls */}
             <div className="flex items-center gap-4 mt-6">
               <button
                 onClick={prevSlide}
@@ -235,7 +284,7 @@ const Hero = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

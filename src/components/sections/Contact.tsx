@@ -113,7 +113,8 @@ const Contact = () => {
             </div>
 
             {/* CTA */}
-            <div 
+
+            {/* <div 
               className="p-6 rounded-2xl"
               style={{ border: "1px solid var(--color-border)" }}
             >
@@ -131,7 +132,7 @@ const Contact = () => {
                 <Mail size={16} />
                 <span>Get in Touch</span>
               </a>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Right Side - Name & Social */}
