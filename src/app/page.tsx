@@ -36,7 +36,7 @@ export default function Home() {
         <About />
         <Work />
         <Projects />
-        <Articles />
+        {/* <Articles /> */}
         <Contact />
       </div>
     </motion.main>
