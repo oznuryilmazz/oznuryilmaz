@@ -10,45 +10,27 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "AI Music Dashboard",
+      description:
+        "AI Music Dashboard is an intelligent and interactive music management platform designed to track audio analytics, playback statistics, and user behavior in real time. Built with modern web technologies, it offers a clean UI, responsive design, and seamless integration with audio engines like Howler.js. The dashboard makes it easy to monitor track performance, control playback, and visualize key metrics for a smooth and data-driven music experience.",
+      tags: ["Next.js", "TypeScript", "React", "Cloudflare R2", "MUI Material", "Tailwind CSS"],
+      github: "https://github.com/oznuryilmazz/ai-music-dashboard",
+      demo: "https://panel.aimusic.com.tr/",
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      desktopImage: "/images/darkmode_aimusic.png",
+      mobileImage: "/images/light_mode_aimusic.png",
+      hasRealImages: true,
+    },
+    {
       title: "Nexus Nil Architect",
       description:
-        "A modern and elegant architecture firm website featuring project showcases, team introductions, and contact functionality. Built with a focus on visual aesthetics and smooth user experience. The site includes a project gallery, about section, statistics display, and an integrated contact form with Google Maps.",
+        "Nexus Nil Architect is a modern and elegant architecture website designed to showcase projects, introduce the team, and provide seamless contact options. Built with Next.js, React, Tailwind CSS, and Framer Motion, it delivers a visually refined and responsive user experience. Featuring real project images, smooth animations, and integrated Google Maps, it serves as a professional digital presence for an architecture firm.",
       tags: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "Responsive Design"],
-      github: "https://github.com/oznuryilmazz",
+      github: "https://github.com/oznuryilmazz/nexus-nil-architect",
       demo: "https://nexusnilarch.com",
       desktopImage: "/images/nexus-desktop.jpeg",
       mobileImage: "/images/mobile-nexus.jpeg",
       hasRealImages: true,
-    },
-    {
-      title: "E-Commerce Platform",
-      description:
-        "A full-featured e-commerce platform with product management, shopping cart, payment integration, and admin dashboard. Built with modern technologies for optimal performance and user experience.",
-      tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Tailwind CSS"],
-      github: "https://github.com/oznuryilmazz",
-      demo: "#",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      hasRealImages: false,
-    },
-    {
-      title: "Task Management App",
-      description:
-        "A collaborative task management application with real-time updates, team workspaces, drag-and-drop functionality, and progress tracking. Designed for productivity and team collaboration.",
-      tags: ["React", "Node.js", "Socket.io", "MongoDB", "Redux", "Material UI"],
-      github: "https://github.com/oznuryilmazz",
-      demo: "#",
-      gradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
-      hasRealImages: false,
-    },
-    {
-      title: "Social Media Dashboard",
-      description:
-        "An analytics dashboard for social media management with data visualization, scheduled posting, engagement metrics, and multi-platform support. Helps businesses track their online presence.",
-      tags: ["Vue.js", "Express", "Chart.js", "Redis", "Docker", "AWS"],
-      github: "https://github.com/oznuryilmazz",
-      demo: "#",
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-      hasRealImages: false,
     },
   ];
 
